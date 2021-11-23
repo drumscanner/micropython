@@ -84,8 +84,13 @@ STATIC const machine_pin_obj_t machine_pin_obj[] = {
     {{&machine_pin_type}, GPIO_NUM_13},
     {{&machine_pin_type}, GPIO_NUM_14},
     {{&machine_pin_type}, GPIO_NUM_15},
+    #if CONFIG_ESP32_SPIRAM_SUPPORT
+    {{NULL}, -1},
+    {{NULL}, -1},
+    #else
     {{&machine_pin_type}, GPIO_NUM_16},
     {{&machine_pin_type}, GPIO_NUM_17},
+    #endif
     {{&machine_pin_type}, GPIO_NUM_18},
     {{&machine_pin_type}, GPIO_NUM_19},
     {{NULL}, -1},
@@ -193,6 +198,13 @@ STATIC const machine_pin_obj_t machine_pin_obj[] = {
     {{&machine_pin_type}, GPIO_NUM_44}, // U0RXD
     {{&machine_pin_type}, GPIO_NUM_45},
     {{&machine_pin_type}, GPIO_NUM_46},
+
+    #endif
+
+    #if CONFIG_IDF_TARGET_ESP32S3 && MICROPY_HW_ESP32S3_EXTENDED_IO
+
+    {{&machine_pin_type}, GPIO_NUM_47},
+    {{&machine_pin_type}, GPIO_NUM_48},
 
     #endif
 };
@@ -518,8 +530,13 @@ STATIC const machine_pin_irq_obj_t machine_pin_irq_object[] = {
     {{&machine_pin_irq_type}, GPIO_NUM_13},
     {{&machine_pin_irq_type}, GPIO_NUM_14},
     {{&machine_pin_irq_type}, GPIO_NUM_15},
+    #if CONFIG_ESP32_SPIRAM_SUPPORT
+    {{NULL}, -1},
+    {{NULL}, -1},
+    #else
     {{&machine_pin_irq_type}, GPIO_NUM_16},
     {{&machine_pin_irq_type}, GPIO_NUM_17},
+    #endif
     {{&machine_pin_irq_type}, GPIO_NUM_18},
     {{&machine_pin_irq_type}, GPIO_NUM_19},
     {{NULL}, -1},
@@ -621,6 +638,14 @@ STATIC const machine_pin_irq_obj_t machine_pin_irq_object[] = {
     {{&machine_pin_irq_type}, GPIO_NUM_43},
     {{&machine_pin_irq_type}, GPIO_NUM_44},
     {{&machine_pin_irq_type}, GPIO_NUM_45},
+    {{&machine_pin_irq_type}, GPIO_NUM_46},
+
+    #endif
+
+    #if CONFIG_IDF_TARGET_ESP32S3 && MICROPY_HW_ESP32S3_EXTENDED_IO
+
+    {{&machine_pin_irq_type}, GPIO_NUM_47},
+    {{&machine_pin_irq_type}, GPIO_NUM_48},
 
     #endif
 };
