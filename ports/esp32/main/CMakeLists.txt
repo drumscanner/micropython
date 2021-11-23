@@ -95,6 +95,7 @@ set(IDF_COMPONENTS
     app_update
     bootloader_support
     bt
+    coap
     driver
     esp_common
     esp_eth
