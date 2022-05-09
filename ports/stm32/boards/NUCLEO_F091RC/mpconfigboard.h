@@ -4,6 +4,7 @@
 #define MICROPY_EMIT_THUMB          (0)
 #define MICROPY_EMIT_INLINE_THUMB   (0)
 #define MICROPY_OPT_COMPUTED_GOTO   (0)
+#define MICROPY_PY_IO_FILEIO        (0)
 #define MICROPY_PY_USOCKET          (0)
 #define MICROPY_PY_NETWORK          (0)
 #define MICROPY_PY_STM              (0)
@@ -13,13 +14,12 @@
 #define MICROPY_HW_ENABLE_RTC       (1)
 #define MICROPY_HW_ENABLE_ADC       (1)
 #define MICROPY_HW_ENABLE_DAC       (1)
-#define MICROPY_HW_ENABLE_TIMER     (1)
 #define MICROPY_HW_HAS_SWITCH       (1)
 
 // For system clock, enable one source:
-//#define MICROPY_HW_CLK_USE_HSI      (1) // internal 8MHz -> PLL = 48MHz.
+// #define MICROPY_HW_CLK_USE_HSI      (1) // internal 8MHz -> PLL = 48MHz.
 #define MICROPY_HW_CLK_USE_HSI48    (1) // internal 48MHz.
-//#define MICROPY_HW_CLK_USE_HSE      (1) // external crystal -> PLL = 48MHz.
+// #define MICROPY_HW_CLK_USE_HSE      (1) // external crystal -> PLL = 48MHz.
 // For HSE set the crystal / clock input frequency HSE_VALUE in stm32f0xx_hal_conf.h
 #if MICROPY_HW_CLK_USE_HSE
 #define MICROPY_HW_CLK_USE_BYPASS   (1) // HSE comes from STLINK 8MHz, not crystal.
